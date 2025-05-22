@@ -1,0 +1,60 @@
+[project]
+name = "python-example-application"
+version = "0.0.1"
+description = "this is an example python application using submodules"
+readme = "README.md"
+requires-python = ">=3.8"
+#dynamic = ["version"]
+keywords = ["fixme"]
+authors = [
+    {name = "Chip Lukes", email = "34627158+chiplukes@users.noreply.github.com" },
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+"python-example-package@git+https://github.com/chiplukes/python-example-package",
+"pre-commit"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/chiplukes/python-example-application"
+Changelog = "https://github.com/chiplukes/python-example-application/releases"
+Issues = "https://github.com/chiplukes/python-example-application/issues"
+CI = "https://github.com/chiplukes/python-example-application/actions"
+
+[project.optional-dependencies]
+test = ["pytest","pytest-cov"]
+
+
+[tool.ruff.lint]
+select = [
+  "A",   # flake8-builtins
+  "B",   # flake8-bugbear
+  "S",   # flake8-bandit
+  "E",   # Pyflakes
+  "F",   # Pycodestyle
+  "I",   # Isort
+  "PL",  # Pylint
+  "RUF", # Ruff-specific rules
+]
+ignore = ["E501"]
+
+
+#[tool.mypy]
+#strict = "True"
+#implicit_reexport = "True"
+#check_untyped_defs = true
+#ignore_missing_imports = true
+## Exclude type checking on files/dirs
+#exclude = [
+#  # TOML basic string (double-quotes, backslash and other characters need escaping)
+#  # TOML literal string (single-quotes, no escaping necessary)
+#]
