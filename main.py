@@ -1,7 +1,7 @@
 import argparse
 import importlib.metadata
 
-import python_example_application
+import clone_ebook
 
 if __name__ == "__main__":
     print(f"{__file__}:__main__")
@@ -21,10 +21,10 @@ if __name__ == "__main__":
         "--version",
         action="version",
         version="%(prog)s (version {version})".format(
-            version=importlib.metadata.version("python_example_application")
+            version=importlib.metadata.version("clone_ebook")
         ),
     )
 
     args = parser.parse_args()
 
-    solved = python_example_application.python_example_application_fun()
+    solved = clone_ebook.clone_ebook_main()

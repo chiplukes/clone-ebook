@@ -1,11 +1,11 @@
 [project]
-name = "python-example-application"
+name = "clone-ebook"
 version = "0.0.1"
-description = "this is an example python application using submodules"
+description = "python application to clone an ebook that you own"
 readme = "README.md"
 requires-python = ">=3.8"
 #dynamic = ["version"]
-keywords = ["fixme"]
+keywords = ["ebook"]
 authors = [
     {name = "Chip Lukes", email = "34627158+chiplukes@users.noreply.github.com" },
 ]
@@ -16,8 +16,8 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 dependencies = [
-"python-example-package@git+https://github.com/chiplukes/python-example-package",
-"pre-commit"
+    "Pillow",
+    "pre-commit"
 ]
 
 [build-system]
@@ -25,13 +25,13 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-Homepage = "https://github.com/chiplukes/python-example-application"
-Changelog = "https://github.com/chiplukes/python-example-application/releases"
-Issues = "https://github.com/chiplukes/python-example-application/issues"
-CI = "https://github.com/chiplukes/python-example-application/actions"
+Homepage = "https://github.com/chiplukes/clone-ebook"
+Changelog = "https://github.com/chiplukes/clone-ebook/releases"
+Issues = "https://github.com/chiplukes/clone-ebook/issues"
+CI = "https://github.com/chiplukes/clone-ebook/actions"
 
-[project.optional-dependencies]
-test = ["pytest","pytest-cov"]
+#[project.optional-dependencies]
+#test = ["pytest","pytest-cov"]
 
 
 [tool.ruff.lint]
