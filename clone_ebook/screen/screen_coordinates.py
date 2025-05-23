@@ -1,5 +1,6 @@
 import tkinter as tk
 
+import pyautogui
 from PIL import ImageGrab
 
 
@@ -11,10 +12,11 @@ class screen_coordinates:
         self.start_y = None
         self.end_x = None
         self.end_y = None
+        self.button_x = None
+        self.button_y = None
         self.rect = None
-        self.screenshot = None
 
-    def draw_rectangle(self):
+    def select_text_region(self):
         self.root = tk.Tk()
 
         self.root.attributes("-fullscreen", True)
@@ -29,6 +31,11 @@ class screen_coordinates:
         self.canvas.bind("<ButtonRelease-1>", self.on_release)
 
         self.root.mainloop()
+
+    def select_next_page_button(self):
+
+        input("\nMove mouse pointer to location of next page button in ebook reader.\nPress enter here when mouse is hovering over button>")
+        self.button_x, self.button_y = pyautogui.position() # Get the XY position of the mouse
 
     def on_press(self, event):
         self.start_x = event.x
@@ -55,7 +62,13 @@ class screen_coordinates:
             self.root.destroy()
 
     def get_screenshot(self):
-        self.screenshot = ImageGrab.grab(
+        screenshot = ImageGrab.grab(
             bbox=(self.start_x, self.start_y, self.end_x, self.end_y)
         )
-        self.screenshot.show()
+        #screenshot.show()
+        return screenshot
+
+
+    def next_page(self):
+        pyautogui.moveTo(self.button_x, self.button_y)
+        pyautogui.leftClick()
