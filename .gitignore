@@ -13,3 +13,6 @@ build
 reports
 .coverage
 *.json
+*.md
+*.epub
+!README.md

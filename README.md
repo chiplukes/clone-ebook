@@ -9,6 +9,20 @@ This application uses OCR to create a backup of an ebook that you own from the s
 
 Currently a work in progress!
 
+## Prerequisites
+
+### Tesseract OCR
+
+You will need to install Tesseract OCR.  See instructions here:
+
+https://tesseract-ocr.github.io/tessdoc/Installation.html
+
+### Pandoc
+
+You will need to install Pandoc.
+
+https://pandoc.org/installing.html
+
 ## Installation
 
 Install this application using `pip`:
