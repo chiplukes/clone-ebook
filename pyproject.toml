@@ -3,13 +3,14 @@ name = "clone-ebook"
 version = "0.0.1"
 description = "python application to clone an ebook that you own"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 #dynamic = ["version"]
 keywords = ["ebook"]
 authors = [
     {name = "Chip Lukes", email = "34627158+chiplukes@users.noreply.github.com" },
 ]
-license = {text = "MIT"}
+#license = {text = "MIT"}
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -18,8 +19,8 @@ classifiers = [
 dependencies = [
     "Pillow",
     "pypandoc",
-    "pytesseract",
     "pre-commit",
+    "marker-pdf",
     "pyautogui"
 ]
 
