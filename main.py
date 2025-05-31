@@ -61,6 +61,6 @@ if __name__ == "__main__":
 
     solved = clone_ebook.clone_ebook_main(
         output_directory=args.output_dir,
-        book_names_lst=args.book_name,
+        book_names_lst=book_name_lst,
         max_pages=args.max_pages,
     )

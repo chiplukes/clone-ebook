@@ -15,4 +15,7 @@ reports
 *.json
 *.md
 *.epub
+*.jpeg
+*.jpg
+*.pdf
 !README.md

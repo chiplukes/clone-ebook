@@ -12,17 +12,17 @@ from .screen import screen_coordinates
 def clone_ebook_main(book_names_lst=None, output_directory=None, max_pages=10):
     sc = screen_coordinates.screen_coordinates()
 
-    print("Use mouse to draw a rectangle around text region from ebook reader.")
-    sc.select_text_region()
-
-    print("Click mouse on next page button from ebook reader.")
-    sc.select_next_page_button()
-
     output_directory.mkdir(parents=True, exist_ok=True)
     for book_name in book_names_lst:
-
         print(f"Capturing book: {book_name}")
         input("Open ebook reader and press enter to select text region")
+
+        print("Use mouse to draw a rectangle around text region from ebook reader.")
+        sc.select_text_region()
+
+        print("Click mouse on next page button from ebook reader.")
+        sc.select_next_page_button()
+
         page_i = 1
         pages_lst = []
         screen_previous = None
@@ -43,13 +43,12 @@ def clone_ebook_main(book_names_lst=None, output_directory=None, max_pages=10):
         output_book_directory = output_directory / book_name
         output_book_directory.mkdir(parents=True, exist_ok=True)
         pages_lst[0].save(
-            output_book_directory /f"{book_name}.pdf",
+            output_book_directory / f"{book_name}.pdf",
             "PDF",
             resolution=100.0,
             save_all=True,
             append_images=pages_lst[1:],
         )
-
 
     for book_name in book_names_lst:
         print(f"Converting book: {book_name}")
@@ -61,7 +60,9 @@ def clone_ebook_main(book_names_lst=None, output_directory=None, max_pages=10):
         rendered = converter(str(output_book_directory / f"{book_name}.pdf"))
         text, _, images = text_from_rendered(rendered)
 
-        with open(output_book_directory / f"{book_name}.md", "wt", encoding="utf-8") as f:
+        with open(
+            output_book_directory / f"{book_name}.md", "wt", encoding="utf-8"
+        ) as f:
             f.write(text)
 
         for x in images:
