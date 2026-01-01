@@ -25,31 +25,63 @@ https://pandoc.org/installing.html
 
 ## Installation
 
-Install this application using `pip`:
+### Using uv (recommended)
+
+First, install uv if you haven't already:
 ```bash
-git clone git+https://github.com/chiplukes/clone-ebook
+# On Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# On macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Then clone and set up the project:
+```bash
+git clone https://github.com/chiplukes/clone-ebook
+cd clone-ebook
+uv sync
+```
+
+### Using pip (alternative)
+
+```bash
+git clone https://github.com/chiplukes/clone-ebook
 cd clone-ebook
 python -m venv .venv
-source venv/bin/activate
-
+# On Windows:
+.venv\Scripts\activate
+# On macOS/Linux:
+source .venv/bin/activate
+pip install -e .
 ```
 
 ## Usage
 
-Now install the dependencies and test dependencies:
+Running main application:
 ```bash
-python -m pip install -e .
-```
+# With uv
+uv run python main.py
 
-Running main application
-```bash
+# Or if venv is activated
 python main.py
 ```
-``
+
+### Convert existing PDF to markdown
+
+To convert an existing PDF file directly to markdown (skips screen capture):
+```bash
+uv run python main.py --input_pdf "path/to/your/book.pdf"
+```
 
 ## Development
 
+Install development dependencies:
+```bash
+uv sync --extra dev
+```
+
 For using pre-commit hooks:
 ```bash
-pre-commit install
+uv run pre-commit install
 ```

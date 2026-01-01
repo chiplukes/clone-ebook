@@ -33,6 +33,14 @@ if __name__ == "__main__":
         help="Maximum number of pages to process",
     )
 
+    # Optional argument for input PDF (convert only mode)
+    parser.add_argument(
+        "--input_pdf",
+        type=Path,
+        default=None,
+        help="Path to an existing PDF file to convert to markdown (skips screen capture)",
+    )
+
     # Optional argument flag which defaults to False
     parser.add_argument("-d", "--debug", action="store_true", default=False)
 
@@ -63,4 +71,5 @@ if __name__ == "__main__":
         output_directory=args.output_dir,
         book_names_lst=book_name_lst,
         max_pages=args.max_pages,
+        input_pdf=args.input_pdf,
     )
